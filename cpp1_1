@@ -1,0 +1,38 @@
+//swing 씨플플 1주차 과제1
+/*31기 육은서
+C++ 과제*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	char name[12];
+	int schoolnumber;
+	float c;
+	float ci;
+	float eng1;
+	float eng;
+
+	std::cout << "이름:";
+	cin.getline(name, 12, '\n');
+	std::cout << "\n학번:";
+	std::cin >> schoolnumber;
+	std::cout << "\n반갑습니다."<<name<<"님\n\n";
+	std::cout << "학점 입력을 시작합니다.\n\n";
+
+	std::cout << "======== SWING 31 ========"<<std::endl;
+	std::cout << "C프로그래밍(3학점):";
+	std::cin >> c;
+	std::cout << "\n컴퓨터및정보보호개론(3학점):";
+	std::cin >> ci;
+	std::cout << "\n소프트웨어개발실무영어1(1학점):";
+	std::cin >> eng1;
+	std::cout << "\n대학고급영어(2학점):";
+	std::cin >> eng;
+	std::cout << "\n======== SWING 31 ========\n\n";
+	
+	float r;
+	r = (c * 3 + ci * 3 + eng1 * 1 + eng * 2) / 9;
+	std::cout << name <<"("<<schoolnumber<<")" << "님의 전체 학점은 " << r << "입니다";
+}
