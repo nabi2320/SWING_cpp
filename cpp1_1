@@ -14,25 +14,31 @@ int main()
 	float eng1;
 	float eng;
 
-	std::cout << "이름:";
+	cout << "이름:";
 	cin.getline(name, 12, '\n');
-	std::cout << "\n학번:";
-	std::cin >> schoolnumber;
-	std::cout << "\n반갑습니다."<<name<<"님\n\n";
-	std::cout << "학점 입력을 시작합니다.\n\n";
+	cout << "학번:";
+	endl;
+	cin >> schoolnumber;
+	endl;
+	cout << "반갑습니다."<<name<<"님\n\n";
+	cout << "학점 입력을 시작합니다.\n\n";
 
-	std::cout << "======== SWING 31 ========"<<std::endl;
-	std::cout << "C프로그래밍(3학점):";
-	std::cin >> c;
-	std::cout << "\n컴퓨터및정보보호개론(3학점):";
-	std::cin >> ci;
-	std::cout << "\n소프트웨어개발실무영어1(1학점):";
-	std::cin >> eng1;
-	std::cout << "\n대학고급영어(2학점):";
-	std::cin >> eng;
-	std::cout << "\n======== SWING 31 ========\n\n";
+	cout << "======== SWING 31 ========"<<std::endl;
+	cout << "C프로그래밍(3학점):";
+	cin >> c;
+	endl;
+	cout << "컴퓨터및정보보호개론(3학점):";
+	cin >> ci;
+	endl;
+	cout << "소프트웨어개발실무영어1(1학점):";
+	cin >> eng1;
+	endl;
+	cout << "대학고급영어(2학점):";
+	cin >> eng;
+	endl;
+	cout << "======== SWING 31 ========\n\n";
 	
 	float r; //전체 학점 소수점을 위해 float 사용
 	r = (c * 3 + ci * 3 + eng1 * 1 + eng * 2) / 9; //전체 학점 구하는 식
-	std::cout << name <<"("<<schoolnumber<<")" << "님의 전체 학점은 " << r << "입니다";
+	cout << name <<"("<<schoolnumber<<")" << "님의 전체 학점은 " << r << "입니다";
 }
