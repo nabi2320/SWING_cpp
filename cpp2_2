@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+
+int seat[10][6] = {};
+int a, w, l, nw, nl;
+
+//비행기 좌석 출력
+void chr() {
+	
+	for (int i = 0;i < 10;i++) {
+		for (int j = 0;j < 3;j++) {
+			cout << seat[i][j] << " ";
+		}
+		cout << "\t"; //통로 만들어주기
+		for (int j = 3;j < 6;j++) {
+			cout << seat[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+//선택에 따른 화면
+void cho() {
+	//1번 선택했을 때
+	if (a == 1) {
+		cout << endl;
+		cout << "1 2 3" << "\t" << "4 5 6" << endl;
+		cout << "---------------" << endl;
+
+		//비행기 좌석 출력
+		chr();
+
+		cout << endl << "몇열, 몇번째 좌석을 예약하시겠습니까?";
+		cin >> l >> w;
+
+		//좌석 예약 여부
+		if (seat[l - 1][w - 1] == 1) {
+			cout << endl << "이미 예약된 자리입니다."<<endl<<endl<<endl;
+			cho();
+		}
+		else {
+			cout << endl << "예약되었습니다."<<endl<<endl<<endl;
+			seat[l - 1][w - 1] = { 1 };
+		}
+	}
+	//2번 선택했을 때
+	else if (a == 2) {
+		cout << endl;
+		cout << "1 2 3" << "\t" << "4 5 6" << endl;
+		cout << "---------------" << endl;
+
+		//비행기 좌석 출력
+		chr();
+
+		cout << endl << "현재 좌석과 변경하고자 하는 좌석을 각각 열, 번호 순서로 입력해 주세요:";
+		cin >> l >> w >> nl >> nw;
+
+		//좌석 예약 여부
+		if (seat[l - 1][w - 1] != 1) {
+			cout << endl << "좌석을 정확히 입력해주세요." << endl<<endl<<endl;
+			cho();
+		}
+		else if (seat[nl - 1][nw - 1] == 1) {
+			cout << endl << "이미 예약된 좌석입니다. 다른 좌석을 선택해 주세요." << endl<<endl<<endl;
+			cho();
+		}
+		else {
+			cout << endl << "좌석이 변경되었습니다." << endl<<endl<<endl;
+			seat[nl - 1][nw - 1] = { 1 };
+			seat[l - 1][w - 1] = { 0 };
+		}
+	}
+	//3번 선택했을 때
+	else if (a == 3) {
+		cout << "프로그램을 종료합니다." << endl;
+
+	}
+	//선택지에 없는 번호 입력
+	else {
+		cout << "올바른 숫자를 입력해 주세요." << endl<<endl<<endl;
+	}
+}
+
+int main() {
+
+	//초기화면
+	while (a != 3) {
+		cout << " ** 비행기 좌석 예약 시스템 ** " << endl << endl << "1. 신규예약" << endl << "2. 예약 변경" << endl << "3. 프로그램 종료" << endl << endl << "번호를 입력하세요:";
+		cin >> a;
+		cho();
+
+	}
+	
+	
+	return 0;
+}
