@@ -1,11 +1,12 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib> //rand와 srand를 쓰기 위한 헤더
+#include <ctime> //time을 쓰기 위한 헤더
 using namespace std;
 
 int main() {
-	srand((unsigned int)time(NULL));
-	int num = rand() % 101;
+	srand((unsigned int)time(NULL)); //실행할 때마다 랜덤한 수를 얻기 위함
+	//A/B를 했을 때 나머지는 항상 B-1 이하이다. 때문에 rand()%101<=100
+	int num = rand() % 101; //7줄 명령이 없다면 실행할 때마다 같은 난수가 나옴
 	cout << "랜덤한 수:" << num << endl;
 	int gae;
 	cout << "특정 배수 개수:";
@@ -13,6 +14,7 @@ int main() {
 	cout << endl << endl;
 
 	int bae, g;
+	//g는 1부터 시작함, g가 gae+1보다 작을 때까지만 반복 실행
 	for (g = 1;g < gae + 1;g++) {
 		cout << g << "번째 특정 배수:";
 		cin >> bae;
@@ -24,13 +26,15 @@ int main() {
 		cout << endl;
 		cout << "<특정 배수 제외 출력하는 프로그램>" << endl;
 		for (int i = 1;i < num + 1; i++) {
+			//continue함수는 조건식에 부합할 때만 for문을 실행하지 않고 넘어감
+			//i를 bae로 나누었을 때 나머지가 0이면 i는 bae의 배수
 			if (i % bae == 0) {
 				continue;
 			}
-			cout << i << ", ";
+			cout << g << ", ";
 		}
 		cout << endl << endl;
 	}
-	
+
 	return 0;
 }
