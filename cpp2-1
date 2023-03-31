@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+	srand((unsigned int)time(NULL));
+	int num = rand() % 101;
+	cout << "랜덤한 수:" << num << endl;
+	int gae;
+	cout << "특정 배수 개수:";
+	cin >> gae;
+	cout << endl << endl;
+
+	int bae, g;
+	for (g = 1;g < gae + 1;g++) {
+		cout << g << "번째 특정 배수:";
+		cin >> bae;
+		cout << endl;
+		cout << "<특정 배수만 출력하는 프로그램" << endl;
+		for (int i = 1; bae * i < num + 1;i++) {
+			cout << bae * i << ", ";
+		}
+		cout << endl;
+		cout << "<특정 배수 제외 출력하는 프로그램>" << endl;
+		for (int i = 1;i < num + 1; i++) {
+			if (i % bae == 0) {
+				continue;
+			}
+			cout << i << ", ";
+		}
+		cout << endl << endl;
+	}
+	
+	return 0;
+}
