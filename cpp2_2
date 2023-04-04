@@ -68,6 +68,7 @@ void cho() {
 			cout << endl << "좌석이 변경되었습니다." << endl<<endl<<endl;
 			seat[nl - 1][nw - 1] = { 1 };
 			seat[l - 1][w - 1] = { 0 };
+			chr();
 		}
 	}
 	//3번 선택했을 때
