@@ -31,7 +31,7 @@ int main() {
 			if (i % bae == 0) {
 				continue;
 			}
-			cout << g << ", ";
+			cout << i << ", ";
 		}
 		cout << endl << endl;
 	}
