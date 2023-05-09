@@ -1,0 +1,104 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int cho;
+string name;
+string id;
+int pwd;
+string idlogin;
+int pwdlogin;
+int total_money;
+string acc[4] = { "예금","적금","주택청약","주식계좌" };
+int mon[4] = { 5000,4000,0,10 };
+
+
+
+void myaccount(string *accp, int *monp) {
+//accp에서 +1 하면서 배열 
+	cout << "-------------------- swing 계좌 정보 --------------------" << endl;
+	cout << "|  "<<*accp<< "  |  " << *(accp+1)<< "  |  " << *(accp + 2) << "  |  " << *(accp + 3) << "  |" << endl;
+	cout << "|  "<<*monp<< "  |  "<< *(monp + 1) << "  |     "<< *(monp + 2) << "      |     "<< *(monp + 3) << "     |" << endl;
+	cout << "---------------------------------------------------------" << endl;
+
+}
+
+int total(int a, int b, int c,int d) {
+	total_money = a+b+c+d;
+	return total_money;
+}
+
+void menu() {
+	cout << "*********** SWING 자산 관리 서비스 *************" << endl;
+	cout << "1. 계좌 정보 출력" << endl;
+	cout << "2. 총 자산 출력" << endl;
+	cout << "3. 로그아웃" << endl << endl;
+	cout << "번호를 입력하세요 >> ";
+	cin >> cho;
+	cout << endl << endl;
+	
+	if (cho == 1) {
+    //계좌 정보 출력
+    //함수호출을 이용하여 *accp=&acc[0]
+		cout << endl << endl;
+		myaccount(&acc[0], &mon[0]);
+		menu();
+	}
+	else if (cho == 2) {
+    //총 자산 출력
+		cout << endl << endl << "현재 swing 자산관리 서비스에 등록된 회원님의 총 자산은 " << total(mon[0],mon[1],mon[2],mon[3]) << "원 입니다." << endl << endl;
+		menu();
+	}
+	else if (cho == 3) {
+		cout << endl << endl << "==== 로그아웃 ====" << endl << endl;
+		cout << "로그아웃 되었습니다. 안녕히 가세요." << endl << endl;
+	}
+	else
+		menu();
+}
+
+void login() {
+	//로그인 메인 화면, 로그인 실패시 반복해서 화면을 띄워야 하기 때문에 함수 정의
+	cout << "*********** SWING 은행 *************" << endl;
+	cout << "1. 회원가입" << endl;
+	cout << "2. 로그인" << endl << endl;
+	cout << "번호를 입력하세요 >> ";
+	cin >> cho;
+	cout << endl << endl;
+	if (cho == 1) {
+		//회원가입 페이지
+		cout << "이름:";
+		cin >> name;
+		cout <<endl<< "아이디:";
+		cin >> id;
+		cout <<endl<< "비밀번호:";
+		cin >> pwd;
+		login();
+	}
+	else if (cho == 2) {
+		//로그인 화면
+		cout << "아이디:";
+		cin >> idlogin;
+		cout <<endl<< "비밀번호:";
+		cin >> pwdlogin;
+		cout << endl << endl;
+
+		//로그인 성공실패
+		if (idlogin == id && pwdlogin == pwd) {
+			cout << "==== 로그인 성공 ====" << endl<<endl;
+			cout << name << "님 환영합니다." << endl << endl;
+			menu();
+		}
+		else {
+			cout << "아이디 혹은 비밀번호가 틀렸습니다." << endl << endl;
+			login();
+		}
+	}
+	else
+		login();
+}
+int main() {
+	login();
+
+	return 0;
+}
